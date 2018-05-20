@@ -38,7 +38,7 @@ public class Ball extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.white);
-		g.fillRect((int)x, (int)y, 16, 16);
+		g.fillOval((int)x, (int)y, 16, 16);
 	}
 
 }
