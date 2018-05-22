@@ -15,14 +15,14 @@ public class Menu extends MouseAdapter
 {
 	Pong game;
 	Handler handler;
-	//private HUD hud;
+	private HUD hud;
 	//private Random r = new Random();
 	
-	public Menu(Pong game, Handler handler /*HUD hud*/)
+	public Menu(Pong game, Handler handler, HUD hud)
 	{
 		this.game = game;
 		this.handler = handler;
-		//this.hud = hud;
+		this.hud = hud;
 	}
 	
 	//Class for when the mouse button is pressed
@@ -31,7 +31,7 @@ public class Menu extends MouseAdapter
 		int mx = e.getX();
 		int my = e.getY();
 		
-		//Change the game state and/or add objects dependin on the current state and what button was pressed
+		//Change the game state and/or add objects depending on the current state and what button was pressed
 		if(Pong.gameState == STATE.Menu)
 		{
 			//Play Button
@@ -86,7 +86,7 @@ public class Menu extends MouseAdapter
 			if(mouseOver(mx, my, 210, 350, 200, 64))
 			{
 				Pong.gameState = STATE.Menu;
-				//hud.setScore(0);
+				hud.resetScore();
 				return;
 			}
 	}
