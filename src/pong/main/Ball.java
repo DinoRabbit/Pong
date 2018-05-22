@@ -34,7 +34,7 @@ public class Ball extends GameObject
 		if(x <= 0 || x >= Pong.WIDTH - 16) velX *= -1;
 	}
 	
-	//Render the ball in the window -- it's a rectangle for now, just to keep everything simple.
+	//Render the ball in the window
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.white);
