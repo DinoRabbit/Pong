@@ -21,7 +21,7 @@ public class Pong extends Canvas implements Runnable
 	
 	//private Random r;
 	private Handler handler;
-	//private HUD hud;
+	private HUD hud;
 	private Menu menu;
 	
 	//Enumeration to determine the state of the game
@@ -39,8 +39,8 @@ public class Pong extends Canvas implements Runnable
 	public Pong()
 	{
 		handler = new Handler();
-		//hud = new HUD();
-		menu = new Menu(this, handler /*hud*/);
+		hud = new HUD();
+		menu = new Menu(this, handler, hud);
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(menu);
 		new Window(WIDTH, HEIGHT, "Game", this);
@@ -108,10 +108,10 @@ public class Pong extends Canvas implements Runnable
 		{
 			if(!paused)
 			{
-				//hud.tick();
+				hud.tick();
 				handler.tick();
 				
-				/*if(HUD.HEALTH <= 0)
+				/*if()
 				{
 					once the hud is implemented, this code
 					will determine a game over/win
@@ -146,7 +146,7 @@ public class Pong extends Canvas implements Runnable
 		}
 		if(gameState == STATE.Game)
 		{
-			//hud.render(g);
+			hud.render(g);
 			handler.render(g);
 		}
 		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select)
@@ -175,3 +175,4 @@ public class Pong extends Canvas implements Runnable
 		new Pong();
 	}
 }
+
