@@ -56,7 +56,7 @@ public class Menu extends MouseAdapter
 				Pong.gameState = STATE.Game;
 				handler.addObject(new Player(50, Pong.HEIGHT/2, ID.Player, handler));
 				handler.addObject(new Opponent(Pong.WIDTH - 100, Pong.HEIGHT/2, ID.Opponent, handler, 5));
-				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, ID.Ball));
+				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, 1, ID.Ball, handler, hud));
 			}
 			//Hard Button
 			if(mouseOver(mx, my, 210, 250, 200, 64))
@@ -64,7 +64,7 @@ public class Menu extends MouseAdapter
 				Pong.gameState = STATE.Game;
 				handler.addObject(new Player(50, Pong.HEIGHT/2, ID.Player, handler));
 				handler.addObject(new Opponent(Pong.WIDTH - 100, Pong.HEIGHT/2, ID.Opponent, handler, 10));
-				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, ID.Ball));
+				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
 			}
 			//Back Button in Select
 			if(mouseOver(mx, my, 210, 350, 200, 64))
