@@ -30,6 +30,14 @@ public class HUD
 	}
 	
 	//getters and setters
+	public int getPlayerScore()
+	{
+		return playerScore;
+	}
+	public int getOpponentScore()
+	{
+		return opponentScore;
+	}
 	public void playerPoint()
 	{
 		playerScore++;
