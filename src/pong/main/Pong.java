@@ -31,7 +31,8 @@ public class Pong extends Canvas implements Runnable
 		Select,
 		Help,
 		Game,
-		End
+		End,
+		Win
 	};
 	
 	public static STATE gameState = STATE.Menu;
@@ -111,14 +112,19 @@ public class Pong extends Canvas implements Runnable
 				hud.tick();
 				handler.tick();
 				
-				/*if()
+				if(hud.getOpponentScore() == 10)
 				{
-					once the hud is implemented, this code
-					will determine a game over/win
-				}*/
+					handler.clearAll();
+					gameState = STATE.End;
+				}
+				else if(hud.getPlayerScore() == 10)
+				{
+					handler.clearAll();
+					gameState = STATE.Win;
+				}
 			}
 		}		
-		else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select)
+		else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Win)
 		{
 			handler.tick();
 			menu.tick();	
@@ -149,7 +155,7 @@ public class Pong extends Canvas implements Runnable
 			hud.render(g);
 			handler.render(g);
 		}
-		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select)
+		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Win)
 		{
 			menu.render(g);
 			handler.render(g);
@@ -175,4 +181,3 @@ public class Pong extends Canvas implements Runnable
 		new Pong();
 	}
 }
-
