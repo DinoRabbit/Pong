@@ -21,7 +21,7 @@ public class Ball extends GameObject
 		if(mode <= 0) velX = -5;
 		else velX = 5;
 		
-		velY = 5;
+		velY = -3;
 	}
 	
 	public Rectangle getBounds()
