@@ -4,14 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-//Game Heads-up display to show, Health, Score, Level, etc.
+//Game Heads-up display to show and keep track of each player's score.
 
 public class HUD 
 {
-	public int bounds = 0;
-	public static int HEALTH = 100;
-	
-
 	private int playerScore = 0;
 	private int opponentScore = 0;
 	
@@ -34,6 +30,14 @@ public class HUD
 	}
 	
 	//getters and setters
+	public int getPlayerScore()
+	{
+		return playerScore;
+	}
+	public int getOpponentScore()
+	{
+		return opponentScore;
+	}
 	public void playerPoint()
 	{
 		playerScore++;

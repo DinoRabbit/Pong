@@ -54,17 +54,17 @@ public class Menu extends MouseAdapter
 			if(mouseOver(mx, my, 210, 150, 200, 64))
 			{
 				Pong.gameState = STATE.Game;
-				handler.addObject(new Player(50, Pong.HEIGHT/2, ID.Player, handler));
-				handler.addObject(new Opponent(Pong.WIDTH - 100, Pong.HEIGHT/2, ID.Opponent, handler, 5));
-				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, ID.Ball));
+				handler.addObject(new Player(50, Pong.HEIGHT/2 - 100, ID.Player, handler));
+				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 7));
+				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
 			}
 			//Hard Button
 			if(mouseOver(mx, my, 210, 250, 200, 64))
 			{
 				Pong.gameState = STATE.Game;
-				handler.addObject(new Player(50, Pong.HEIGHT/2, ID.Player, handler));
-				handler.addObject(new Opponent(Pong.WIDTH - 100, Pong.HEIGHT/2, ID.Opponent, handler, 10));
-				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, ID.Ball));
+				handler.addObject(new Player(50, Pong.HEIGHT/2 - 100, ID.Player, handler));
+				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 15));
+				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
 			}
 			//Back Button in Select
 			if(mouseOver(mx, my, 210, 350, 200, 64))
@@ -81,7 +81,7 @@ public class Menu extends MouseAdapter
 				Pong.gameState = STATE.Menu;
 				return;
 			}
-		if(Pong.gameState == STATE.End)
+		if(Pong.gameState == STATE.End || Pong.gameState == STATE.Win)
 			//Try Again
 			if(mouseOver(mx, my, 210, 350, 200, 64))
 			{
@@ -162,10 +162,26 @@ public class Menu extends MouseAdapter
 			
 			g.setFont(fnt);
 			g.setColor(Color.white);
-			g.drawString("Game Over", 177, 70);
+			g.drawString("You Lose", 185, 70);
 			
 			g.setFont(fnt3);
-			//g.drawString("You lost with a score of: " + hud.getScore(), 173, 210);
+			g.drawString("Final Score - Player: " + hud.getPlayerScore() + " Opponent: " + hud.getOpponentScore(), 130, 210);
+			g.drawRect(210, 350, 200, 64);
+			g.setFont(fnt2);
+			g.drawString("Try Again", 243, 393);
+		}
+		else if(Pong.gameState == STATE.Win)
+		{
+			Font fnt = new Font("aerial", 1, 50);
+			Font fnt2 = new Font("aerial", 1, 30);
+			Font fnt3 = new Font("aerial", 1, 20);
+			
+			g.setFont(fnt);
+			g.setColor(Color.white);
+			g.drawString("You Win", 200, 70);
+			
+			g.setFont(fnt3);
+			g.drawString("Final Score - Player: " + hud.getPlayerScore() + " Opponent: " + hud.getOpponentScore(), 130, 210);
 			g.drawRect(210, 350, 200, 64);
 			g.setFont(fnt2);
 			g.drawString("Try Again", 243, 393);

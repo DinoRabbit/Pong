@@ -9,12 +9,19 @@ import java.awt.Rectangle;
 public class Ball extends GameObject 
 {
 
-	public Ball(int x, int y, ID id) 
+	private HUD hud;
+	private Handler handler;
+	
+	public Ball(int x, int y, int mode, ID id, Handler handler, HUD hud) 
 	{
 		super(x, y, id);
+		this.hud = hud;
+		this.handler = handler;
 		
-		velX = 5;
-		velY = 5;
+		if(mode <= 0) velX = -5;
+		else velX = 5;
+		
+		velY = -3;
 	}
 	
 	public Rectangle getBounds()
@@ -31,7 +38,19 @@ public class Ball extends GameObject
 		//Keep the ball in the window -- will need to add scoring capabilities later.
 		
 		if(y <= 0 || y >= Pong.HEIGHT - 32) velY *= -1;
-		if(x <= 0 || x >= Pong.WIDTH - 16) velX *= -1;
+		
+		if(x <= 0)
+		{
+			handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, 1, ID.Ball, handler, hud));
+			hud.opponentPoint();
+			handler.removeObject(this);
+		}
+		else if(x >= Pong.WIDTH - 16)
+		{
+			handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
+			hud.playerPoint();
+			handler.removeObject(this);
+		}
 	}
 	
 	//Render the ball in the window

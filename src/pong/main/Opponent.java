@@ -21,7 +21,7 @@ public class Opponent extends GameObject
 	
 	public Rectangle getBounds()
 	{
-		return new Rectangle((int)x, (int)y, 16, 100);
+		return new Rectangle((int)x, (int)y, 16, 150);
 	}
 
 	public void tick() 
@@ -29,7 +29,7 @@ public class Opponent extends GameObject
 		y+=velY;
 		
 		//Reverse the VelY when we hit the top or bottom of the window
-		if(y <= 0 || y >= Pong.HEIGHT - 132) velY *= -1;
+		if(y <= 0 || y >= Pong.HEIGHT - 172) velY *= -1;
 		
 		collision();
 	}
@@ -54,7 +54,7 @@ public class Opponent extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.white);
-		g.fillRect((int)x, (int)y, 16, 100);
+		g.fillRect((int)x, (int)y, 16, 150);
 	}
 
 }
