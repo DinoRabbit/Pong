@@ -55,15 +55,15 @@ public class Menu extends MouseAdapter
 			{
 				Pong.gameState = STATE.Game;
 				handler.addObject(new Player(50, Pong.HEIGHT/2 - 100, ID.Player, handler));
-				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 7));
-				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
+				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 1));
+				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, 1, ID.Ball, handler, hud));
 			}
 			//Hard Button
 			if(mouseOver(mx, my, 210, 250, 200, 64))
 			{
 				Pong.gameState = STATE.Game;
 				handler.addObject(new Player(50, Pong.HEIGHT/2 - 100, ID.Player, handler));
-				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 15));
+				handler.addObject(new Opponent(Pong.WIDTH - 70, Pong.HEIGHT/2 - 100, ID.Opponent, handler, 2));
 				handler.addObject(new Ball(Pong.WIDTH/2, Pong.HEIGHT/2, -1, ID.Ball, handler, hud));
 			}
 			//Back Button in Select
@@ -149,7 +149,7 @@ public class Menu extends MouseAdapter
 			g.drawString("Help", 243, 70);
 			
 			g.setFont(fnt3);
-			g.drawString("Use WASD to move player and dodge enemies", 105, 210);
+			g.drawString("Use WS to move player and hit the ball", 105, 210);
 			g.drawRect(210, 350, 200, 64);
 			g.setFont(fnt2);
 			g.drawString("Back", 282, 393);
