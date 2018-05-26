@@ -29,8 +29,8 @@ public class KeyInput extends KeyAdapter
 			GameObject tempObject = handler.object.get(i);
 			if(tempObject.getId() == ID.Player)
 			{
-				if(key == KeyEvent.VK_W) { tempObject.setVelY(-5); keyDown[0] = true; }
-				if(key == KeyEvent.VK_S) { tempObject.setVelY(5); keyDown[1] = true; }
+				if(key == KeyEvent.VK_W) { tempObject.setVelY(-4); keyDown[0] = true; }
+				if(key == KeyEvent.VK_S) { tempObject.setVelY(4); keyDown[1] = true; }
 			}
 		}
 		//Pause game if P is pressed
