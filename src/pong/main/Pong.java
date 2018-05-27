@@ -148,7 +148,7 @@ public class Pong extends Canvas implements Runnable
 		if(paused)
 		{
 			g.setColor(Color.white);
-			g.drawString("PAUSED", 100, 100);
+			g.drawString("PAUSED", WIDTH/2 - 25, HEIGHT/2);
 		}
 		if(gameState == STATE.Game)
 		{

@@ -21,7 +21,7 @@ public class Player extends GameObject
 	
 	public Rectangle getBounds()
 	{
-		return new Rectangle((int)x, (int)y, 16, 150);
+		return new Rectangle((int)x, (int)y, 16, 100);
 	}
 
 	public void tick() 
@@ -29,7 +29,7 @@ public class Player extends GameObject
 		y+=velY;
 		
 		//Keep the player inside of the window
-		y = Pong.clamp(y, 0, Pong.HEIGHT - 170);
+		y = Pong.clamp(y, 0, Pong.HEIGHT - 130);
 		
 		collision();
 	}
@@ -44,8 +44,10 @@ public class Player extends GameObject
 			{
 				if(getBounds().intersects(tempObject.getBounds()))
 				{
-					tempObject.setVelX((int) -tempObject.getVelX());
-					tempObject.setVelY((int) -tempObject.getVelY());
+					if(tempObject.getVelX() < 0)
+					{
+						tempObject.setVelX((int) -tempObject.getVelX());
+					}
 				}
 			}		
 		}
@@ -54,7 +56,7 @@ public class Player extends GameObject
 	public void render(Graphics g) 
 	{
 		g.setColor(Color.white);
-		g.fillRect((int)x, (int)y, 16, 150);
+		g.fillRect((int)x, (int)y, 16, 100);
 	}
 
 }
