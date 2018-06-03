@@ -47,6 +47,8 @@ public class Player extends GameObject
 					if(tempObject.getVelX() < 0)
 					{
 						tempObject.setVelX((int) -tempObject.getVelX());
+						if(velY > 0 && tempObject.getVelY() < 0) tempObject.setVelY((int) -tempObject.getVelY());
+						else if(velY < 0 && tempObject.getVelY() > 0) tempObject.setVelY((int) -tempObject.getVelY());
 					}
 				}
 			}		
